@@ -23,6 +23,8 @@ export default function App() {
   const [selectedColor, setSelectedColor] = useState<string>('');
   const [selectedAccessories, setSelectedAccessories]
   = useState<string[]>([]);
+  const baseUrl = import.meta.env.BASE_URL;
+
   const toggleAccessory = (item: string) => {
 
   // REMOVE if already selected
@@ -258,14 +260,12 @@ export default function App() {
                 style={{ backgroundColor: currentTheme.accent }}
               >
                 <div className="text-7xl md:text-8xl">
-                  <img 
-                    src="/maindog.png" 
-                    alt="pet" 
+                  <img
+                    src={`${baseUrl}maindog.png`}
+                    alt="pet"
                     className="w-32 md:w-40 mx-auto"
                   />
                 </div>
-
-                <div className="text-7xl md:text-8xl"></div>
               </div>
             </div>
             <div className="space-y-4">
@@ -300,13 +300,13 @@ export default function App() {
   // 2. ADOPT PET SCREEN
   if (currentScreen === 'adopt') {
     const petImages = {
-            cat: "/pets/adoptcat.png",
-            dog: "/pets/adoptdog.png",
-            bunny: "/pets/adoptbunny.png",
-            hamster: "/pets/adopthamster.png",
-            bird: "/pets/adoptbird.png",
-            hedgehog: "/pets/adopthedgehog.png",
-            guineapig: "/pets/adoptguineapig.png" 
+            cat: `${baseUrl}pets/adoptcat.png`,
+            dog: `${baseUrl}pets/adoptdog.png`,
+            bunny: `${baseUrl}pets/adoptbunny.png`,
+            hamster: `${baseUrl}pets/adopthamster.png`,
+            bird: `${baseUrl}pets/adoptbird.png`,
+            hedgehog: `${baseUrl}pets/adopthedgehog.png`,
+            guineapig: `${baseUrl}pets/adoptguineapig.png`
     };
 
     return (
@@ -598,7 +598,7 @@ if (currentScreen === 'accessory') {
                 <div className="mb-2">
 
                   <img
-                    src={`/accessories/${item.toLowerCase()}.png`}
+                    src={`${baseUrl}accessories/${item.toLowerCase()}.png`}
                     alt={item}
                     className="w-16 h-16 object-contain mx-auto"
                   />
@@ -797,7 +797,7 @@ if (currentScreen === 'pet-room' && pet) {
 
               {/* PET */}
               <img
-                src={`/pets/${pet.type}.png`}
+                src={`${baseUrl}pets/${pet.type}.png`}
                 alt={pet.type}
                 className="w-48 md:w-60 object-contain"
               />
@@ -805,7 +805,7 @@ if (currentScreen === 'pet-room' && pet) {
               {/* RIBBON */}
               {pet.accessories?.includes("Ribbon") && (
                 <img
-                  src="/accessories/ribbon.png"
+                  src={`${baseUrl}accessories/ribbon.png`}
                   alt="Ribbon"
                   className="absolute bottom-6 left-1/2 -translate-x-1/2 w-20"
                 />
@@ -814,7 +814,7 @@ if (currentScreen === 'pet-room' && pet) {
               {/* GLASSES */}
               {pet.accessories?.includes("Glasses") && (
                 <img
-                  src="/accessories/glasses.png"
+                  src={`${baseUrl}accessories/glasses.png`}
                   alt="Glasses"
                   className="absolute top-16 left-1/2 -translate-x-1/2 w-24"
                 />
@@ -823,7 +823,7 @@ if (currentScreen === 'pet-room' && pet) {
               {/* FLOWER */}
               {pet.accessories?.includes("Flower") && (
                 <img
-                  src="/accessories/flower.png"
+                  src={`${baseUrl}accessories/flower.png`}
                   alt="Flower"
                   className="absolute top-10 right-10 w-14"
                 />
@@ -981,7 +981,7 @@ if (
 
               {/* PET IMAGE */}
               <img
-                src={`/pets/${pet.type}.png`}
+                src={`${baseUrl}pets/${pet.type}.png`}
                 alt={pet.type}
                 className="w-32 md:w-40 object-contain"
               />
@@ -989,7 +989,7 @@ if (
               {/* CURRENT ACCESSORY */}
               {selectedAccessories.includes("Ribbon") && (
                 <img
-                  src="/accessories/ribbon.png"
+                  src={`${baseUrl}accessories/ribbon.png`}
                   alt="Ribbon"
                   className="absolute top-2 left-1/2 -translate-x-1/2 w-16"
                 />
@@ -997,7 +997,7 @@ if (
 
               {selectedAccessories.includes("Glasses") && (
                 <img
-                  src="/accessories/glasses.png"
+                  src={`${baseUrl}accessories/glasses.png`}
                   alt="Glasses"
                   className="absolute top-10 left-1/2 -translate-x-1/2 w-20"
                 />
@@ -1005,7 +1005,7 @@ if (
 
               {selectedAccessories.includes("Flower") && (
                 <img
-                  src="/accessories/flower.png"
+                  src={`${baseUrl}accessories/flower.png`}
                   alt="Flower"
                   className="absolute top-4 right-6 w-12"
                 />
@@ -1056,7 +1056,7 @@ if (
                 <div className="mb-2">
 
                   <img
-                    src={`/accessories/${item.toLowerCase()}.png`}
+                    src={`${baseUrl}accessories/${item.toLowerCase()}.png`}
                     alt={item}
                     className="w-16 h-16 object-contain mx-auto"
                   />
